@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아침 브리핑 아카이브</title>
+<meta name="description" content="평일마다 쌓이는 아침 브리핑. 날짜를 골라 그날의 마감 시황과 경제·정치·안보·부동산·국제 기사를 봅니다.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="아침 브리핑 아카이브">
+<meta property="og:description" content="평일마다 쌓이는 아침 브리핑 아카이브.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F4A8C'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@700&display=swap">
+<style>
+:root{
+  --paper:#FAFAFB; --surface:#FFFFFF; --raise:#F3F4F7;
+  --ink:#16171C; --body:#3A3D47; --muted:#5C5F6B; --faint:#8B8E99;
+  --line:#E4E5EA; --hair:#EDEEF2;
+  --ind:#2F4A8C; --ind-soft:#E9EDF8; --ind-line:#D3DCF0;
+  --up:#C42B2B; --down:#17539E;
+  --grid:#E8E9EE;
+  --shadow:0 1px 2px rgba(22,23,28,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111216; --surface:#191A1F; --raise:#20222A;
+    --ink:#EBECEF; --body:#C4C6CD; --muted:#9A9DA8; --faint:#73767F;
+    --line:#2B2D36; --hair:#23252C;
+    --ind:#9CB2EB; --ind-soft:#1C2436; --ind-line:#2C3550;
+    --up:#FF7A7A; --down:#79ADF5;
+    --grid:#262832;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111216; --surface:#191A1F; --raise:#20222A;
+  --ink:#EBECEF; --body:#C4C6CD; --muted:#9A9DA8; --faint:#73767F;
+  --line:#2B2D36; --hair:#23252C;
+  --ind:#9CB2EB; --ind-soft:#1C2436; --ind-line:#2C3550;
+  --up:#FF7A7A; --down:#79ADF5;
+  --grid:#262832;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",-apple-system,sans-serif;
+  font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.num{font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace; font-variant-numeric:tabular-nums; font-weight:500}
+.wrap{max-width:1360px; margin:0 auto; padding-inline:20px}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--muted)}
+a{color:var(--ind)}
+:focus-visible{outline:2px solid var(--ind); outline-offset:2px; border-radius:4px}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky; top:env(safe-area-inset-top,0px); z-index:30;
+  background:color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line)}
+.bar-in{display:flex; align-items:center; gap:12px; min-height:56px; flex-wrap:wrap; padding-block:8px}
+.brand{font-family:"Noto Serif KR",serif; font-weight:700; font-size:16px; letter-spacing:-.02em; white-space:nowrap}
+.tabs{display:flex; gap:2px; background:var(--raise); border-radius:9px; padding:3px}
+.tabs button{font:inherit; font-size:13px; font-weight:500; color:var(--muted); background:none;
+  border:0; border-radius:7px; padding:5px 13px; cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface); color:var(--ink); box-shadow:var(--shadow)}
+.datenav{display:flex; align-items:center; gap:6px; margin-left:auto}
+.datenav select{font:inherit; font-size:13.5px; color:var(--ink); background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; padding:6px 10px; max-width:230px}
+.step{font:inherit; width:32px; height:32px; border:1px solid var(--line); background:var(--surface);
+  color:var(--muted); border-radius:8px; cursor:pointer; line-height:1}
+.step:disabled{opacity:.35; cursor:default}
+.step:not(:disabled):hover{color:var(--ink); border-color:var(--ind)}
+
+/* ---------- panes ---------- */
+.pane{display:none; padding-block:26px 60px}
+.pane.on{display:block}
+
+/* ---------- masthead ---------- */
+.mast{padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:22px}
+.eyebrow{display:flex; align-items:center; gap:9px; font-size:11px; letter-spacing:.18em; font-weight:600; color:var(--faint)}
+.eyebrow i{width:26px; height:2px; background:var(--ind); display:inline-block}
+h1{font-family:"Noto Serif KR",serif; font-weight:700; font-size:clamp(26px,4vw,42px);
+  line-height:1.16; letter-spacing:-.035em; margin:12px 0 8px; text-wrap:balance}
+.dek{color:var(--muted); font-size:13px; margin:0; max-width:70ch}
+
+/* ---------- market ---------- */
+.mkt-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px}
+.mkt-head h2{font-size:15px; margin:0; letter-spacing:-.01em}
+.cap{font-size:12px; color:var(--faint)}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(176px,1fr)); gap:10px}
+.kpi{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:13px 15px;
+  display:flex; flex-direction:column; gap:3px; box-shadow:var(--shadow)}
+.kpi .k{font-size:12px; color:var(--muted); font-weight:500}
+.kpi .v{font-size:24px; letter-spacing:-.025em; font-weight:600}
+.kpi .d{font-size:12.5px; font-weight:600}
+.subs{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:10px; padding:11px 15px;
+  background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.sub{display:flex; align-items:baseline; gap:7px; font-size:12.5px}
+.sub .k{color:var(--muted)}
+.notes{margin:12px 0 0; padding-left:17px; font-size:12px; line-height:1.65; color:var(--faint)}
+
+/* ---------- sections & cards ---------- */
+.sec{padding-block:26px; border-top:1px solid var(--line); margin-top:26px}
+.sec-head{display:flex; align-items:center; gap:10px; margin-bottom:16px}
+.sec-head h2{font-family:"Noto Serif KR",serif; font-weight:700; font-size:21px; margin:0; letter-spacing:-.03em}
+.sec-head .n{font-size:12px; color:var(--faint); font-weight:600}
+.tool{margin-left:auto; font:inherit; font-size:12.5px; color:var(--muted); background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; padding:5px 11px; cursor:pointer}
+.tool:hover{color:var(--ink); border-color:var(--ind)}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(318px,1fr)); gap:14px; align-items:start}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:16px 17px;
+  display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow); scroll-margin-top:96px}
+.card.hit{border-color:var(--ind)}
+.card-top{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.pill{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600;
+  padding:3px 9px; border-radius:999px; white-space:nowrap}
+.pill.y{background:var(--ind-soft); color:var(--ind); border:1px solid var(--ind-line)}
+.pill.n{background:var(--raise); color:var(--faint)}
+.src{margin-left:auto; font-size:11.5px; color:var(--faint); font-weight:500; white-space:nowrap}
+.card h3{margin:0; font-size:16.5px; line-height:1.42; letter-spacing:-.018em; font-weight:600; text-wrap:balance}
+.card h3 a{color:var(--ink); text-decoration:none;
+  background:linear-gradient(var(--line),var(--line)) 0 100%/100% 1px no-repeat; padding-bottom:1px}
+.card h3 a:hover{color:var(--ind); background-image:linear-gradient(var(--ind),var(--ind))}
+.lede{margin:0; font-size:13.5px; line-height:1.68; color:var(--body);
+  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden}
+details[open] .lede{-webkit-line-clamp:unset; overflow:visible}
+details{border-top:1px solid var(--hair); padding-top:10px; margin-top:auto}
+summary{list-style:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--muted);
+  display:flex; align-items:center; gap:6px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋"; margin-left:auto; font-weight:400; color:var(--faint)}
+details[open] summary::after{content:"－"}
+summary:hover{color:var(--ind)}
+.detail{display:flex; flex-direction:column; gap:9px; padding-top:11px}
+.lab{font-size:10.5px; letter-spacing:.1em; font-weight:700; color:var(--faint)}
+.detail p{margin:0; font-size:13px; line-height:1.72; color:var(--muted)}
+.impact{background:var(--ind-soft); border:1px solid var(--ind-line); border-radius:10px;
+  padding:12px 13px; display:flex; flex-direction:column; gap:7px}
+.impact .lab{color:var(--ind)}
+.impact p{color:var(--body)}
+.naline{display:flex; align-items:center; gap:8px; background:var(--raise); border-radius:9px; padding:8px 12px}
+.naline b{font-size:12.5px; color:var(--faint); font-weight:500}
+.srcline{font-size:11.5px; color:var(--faint); line-height:1.55}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:13px; box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:620px}
+th{text-align:left; font-size:10.5px; letter-spacing:.1em; font-weight:700; color:var(--faint);
+  padding:14px 16px 10px; border-bottom:1px solid var(--line)}
+td{vertical-align:top; padding:13px 16px; font-size:13px; line-height:1.68; border-bottom:1px solid var(--hair); color:var(--muted)}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--ink); font-weight:600}
+td:nth-child(2){color:var(--body)}
+.disc{margin:11px 0 0; font-size:12px; line-height:1.65; color:var(--faint)}
+
+/* ---------- trends ---------- */
+.spark-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:14px}
+.spark{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:15px 16px;
+  display:flex; flex-direction:column; gap:8px; box-shadow:var(--shadow)}
+.spark .t{display:flex; align-items:baseline; gap:8px}
+.spark .t b{font-size:13px; font-weight:600}
+.spark .t .last{margin-left:auto; font-size:18px; font-weight:600; letter-spacing:-.02em}
+.spark .t .dd{font-size:12px; font-weight:600}
+.spark svg{width:100%; height:92px; display:block; overflow:visible}
+.spark .foot{font-size:11px; color:var(--faint); display:flex; justify-content:space-between}
+.tipbox{position:fixed; z-index:60; pointer-events:none; background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; padding:6px 9px; font-size:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.12); opacity:0; transition:opacity .1s}
+.tipbox.on{opacity:1}
+
+/* ---------- search ---------- */
+.searchbox{display:flex; gap:10px; margin-bottom:18px; flex-wrap:wrap}
+.searchbox input{flex:1 1 280px; font:inherit; font-size:15px; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:11px 14px}
+.hint{font-size:12.5px; color:var(--faint); margin:0 0 16px}
+.res{display:flex; flex-direction:column; gap:9px}
+.res a{display:block; background:var(--surface); border:1px solid var(--line); border-radius:11px;
+  padding:13px 15px; text-decoration:none; color:inherit}
+.res a:hover{border-color:var(--ind)}
+.res .meta{display:flex; gap:8px; align-items:baseline; font-size:11.5px; color:var(--faint); margin-bottom:4px}
+.res .rt{font-size:14.5px; font-weight:600; line-height:1.45; color:var(--ink)}
+.res .rx{font-size:12.5px; color:var(--muted); line-height:1.6; margin-top:4px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+mark{background:var(--ind-soft); color:var(--ind); border-radius:3px; padding:0 2px}
+
+/* ---------- archive list ---------- */
+.days{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; margin-top:18px}
+.day{display:block; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  padding:14px 15px; text-decoration:none; color:inherit}
+.day:hover{border-color:var(--ind)}
+.day .d{font-size:13px; font-weight:600; color:var(--ink)}
+.day .l{font-size:12.5px; color:var(--muted); margin-top:5px; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.day .c{font-size:11.5px; color:var(--faint); margin-top:7px}
+
+footer{border-top:1px solid var(--line); margin-top:36px; padding-block:24px 44px;
+  font-size:12px; line-height:1.7; color:var(--faint)}
+footer p{margin:0 0 6px}
+.empty{padding:44px 0; color:var(--faint); font-size:14px}
+@media (max-width:640px){
+  .datenav{width:100%; margin-left:0}
+  .datenav select{flex:1; max-width:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap bar-in">
+  <span class="brand">아침 브리핑</span>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="t-brief" aria-selected="true" aria-controls="p-brief">브리핑</button>
+    <button role="tab" id="t-trend" aria-selected="false" aria-controls="p-trend">추이</button>
+    <button role="tab" id="t-search" aria-selected="false" aria-controls="p-search">검색</button>
+    <button role="tab" id="t-archive" aria-selected="false" aria-controls="p-archive">전체 날짜</button>
+  </div>
+  <div class="datenav">
+    <button class="step" id="prev" title="이전 브리핑" aria-label="이전 브리핑">◀</button>
+    <label for="datesel" class="cap" style="white-space:nowrap">날짜</label>
+    <select id="datesel" aria-label="브리핑 날짜 선택"></select>
+    <button class="step" id="next" title="다음 브리핑" aria-label="다음 브리핑">▶</button>
+  </div>
+</div></div>
+
+<main>
+  <section class="pane on wrap" id="p-brief" role="tabpanel" aria-labelledby="t-brief"></section>
+  <section class="pane wrap" id="p-trend" role="tabpanel" aria-labelledby="t-trend"></section>
+  <section class="pane wrap" id="p-search" role="tabpanel" aria-labelledby="t-search"></section>
+  <section class="pane wrap" id="p-archive" role="tabpanel" aria-labelledby="t-archive"></section>
+</main>
+
+<footer><div class="wrap">
+  <p id="foot-updated"></p>
+  <p>수집원 한국경제(hankyung.com) · 인베스팅닷컴(kr.investing.com) · Yahoo Finance. 각 브리핑의 수치와 문장은 그날 원문 그대로이며, 원문에 없는 내용은 더하지 않았습니다.</p>
+  <p>매수·매도 의견이 아니며 투자 판단의 근거로 쓰기 위한 자료가 아닙니다.</p>
+</div></footer>
+
+<div class="tipbox" id="tip" role="status"></div>
+
+<script>
+"use strict";
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const S = { index: null, search: null, cache: {}, date: null, focus: null };
+
+function dirClass(d) { return d === "up" ? "up" : d === "down" ? "down" : "flat"; }
+function arrow(d) { return d === "up" ? "▲" : d === "down" ? "▼" : "·"; }
+function label(date) {
+  const day = S.index.days.find(d => d.date === date);
+  const [y, m, dd] = date.split("-");
+  return `${y}년 ${+m}월 ${+dd}일${day ? " (" + day.weekday + ")" : ""}`;
+}
+
+/* ---------------- 브리핑 한 장 ---------------- */
+function itemHTML(day, sec, it, idx) {
+  const has = !!it.impact;
+  const links = it.links || [];
+  const url = links.length ? links[0].url : null;
+  const title = url
+    ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`
+    : esc(it.title);
+  const media = (it.source || "").split(/[—·]/)[0].trim().slice(0, 14) || "출처";
+  const impact = has
+    ? `<div class="impact"><span class="lab">시장 영향 · 확인된 주가 반응</span><p>${esc(it.impact)}</p></div>`
+    : `<div class="naline"><span class="lab">시장 영향</span><b>파악 불가</b></div>`;
+  const srcline = links.length
+    ? links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label.length > 60 ? l.label.slice(0, 60) + "…" : l.label)}</a>`).join(" · ")
+    : esc(it.source);
+  return `<article class="card" id="i-${esc(sec)}-${idx}">
+<div class="card-top">
+  <span class="pill ${has ? "y" : "n"}">${has ? "▲ 주가 반응 확인" : "● 시장 영향 파악 불가"}</span>
+  <span class="src">${esc(media)}</span>
+</div>
+<h3>${title}</h3>
+<p class="lede">${esc(it.summary)}</p>
+<details><summary>배경과 시장 영향</summary>
+  <div class="detail">
+    <span class="lab">왜 중요한가</span><p>${esc(it.why)}</p>
+    ${impact}
+    <p class="srcline">출처 · ${srcline}</p>
+  </div>
+</details></article>`;
+}
+
+function tableHTML(head, rows) {
+  if (!rows || !rows.length) return "";
+  return `<div class="tablewrap"><table><thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+<tbody>${rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+
+function renderBrief(day) {
+  const mk = day.market || {};
+  const tiles = (mk.tiles || []).map(t => `<div class="kpi">
+<span class="k">${esc(t.name)}</span>
+<span class="v num">${esc(t.value)}</span>
+<span class="d num ${dirClass(t.dir)}">${arrow(t.dir)} ${esc(t.change)} ${t.pct ? "(" + esc(t.pct) + ")" : ""}</span></div>`).join("");
+  const subs = (mk.subs || []).map(t => `<span class="sub"><span class="k">${esc(t.name)}</span>
+<b class="num">${esc(t.value)}</b><b class="num ${dirClass(t.dir)}">${esc(t.pct || t.change)}</b></span>`).join("");
+  const notes = (mk.notes || []).map(n => `<li>${esc(n)}</li>`).join("");
+
+  const secs = day.sections.map(s => `<section class="sec">
+<div class="sec-head"><h2>${esc(s.name)}</h2><span class="n num">${s.items.length}건</span>
+<button class="tool" type="button">모두 펼치기</button></div>
+<div class="grid">${s.items.map((it, i) => itemHTML(day, s.name, it, i)).join("")}</div></section>`).join("");
+
+  const ap1 = tableHTML(["용어", "쉬운 설명", "오늘 왜 나왔나"], day.glossary);
+  const ap2 = tableHTML(["이슈 / 뉴스", "기업 또는 주식 이름", "이유 및 영향 경로"], day.companies);
+  const total = day.sections.reduce((a, s) => a + s.items.length, 0);
+  const hits = day.sections.reduce((a, s) => a + s.items.filter(i => i.impact).length, 0);
+
+  $("#p-brief").innerHTML = `
+<header class="mast">
+  <div class="eyebrow"><i></i>MORNING BRIEF</div>
+  <h1>아침 브리핑 · ${esc(label(day.date))}</h1>
+  <p class="dek">${esc(day.sub)} · 기사 ${total}건, 이 중 주가 반응이 수치로 확인된 것은 ${hits}건입니다.</p>
+</header>
+<section>
+  <div class="mkt-head"><h2>📊 오늘의 마감 시황</h2><span class="cap">${esc(mk.asof || "")}</span></div>
+  <div class="kpis">${tiles}</div>
+  ${subs ? `<div class="subs">${subs}</div>` : ""}
+  ${notes ? `<ul class="notes">${notes}</ul>` : ""}
+</section>
+${secs}
+${ap1 ? `<section class="sec"><div class="sec-head"><h2>부록 1 — 경제 용어 정리집</h2><span class="n num">${day.glossary.length}개</span></div>${ap1}</section>` : ""}
+${ap2 ? `<section class="sec"><div class="sec-head"><h2>부록 2 — 이슈별 영향을 받을 수 있는 기업</h2><span class="n num">${day.companies.length}건</span></div>${ap2}
+<p class="disc">※ ${esc(day.disclaimer || "매수·매도 의견이나 주가 방향 전망이 아니다. 기사에 이름이 등장한 기업의 영향 경로만 설명한 것이다.")}</p></section>` : ""}`;
+
+  $("#p-brief").querySelectorAll(".tool").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const ds = btn.closest(".sec").querySelectorAll("details");
+      const open = btn.textContent.includes("펼치기");
+      ds.forEach(d => { d.open = open; });
+      btn.textContent = open ? "모두 접기" : "모두 펼치기";
+    });
+  });
+
+  if (S.focus) {
+    const card = $("#p-brief").querySelectorAll(".card")[S.focus];
+    if (card) {
+      card.classList.add("hit");
+      $("details", card).open = true;
+      requestAnimationFrame(() => card.scrollIntoView({ block: "center" }));
+    }
+    S.focus = null;
+  }
+}
+
+/* ---------------- 추이 (지표별 소형 차트) ---------------- */
+function sparkSVG(pts, dir) {
+  const W = 300, H = 92, PL = 6, PR = 6, PT = 10, PB = 10;
+  if (pts.length === 1) {
+    return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+<line x1="${PL}" y1="${H / 2}" x2="${W - PR}" y2="${H / 2}" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="${W - PR}" cy="${H / 2}" r="5" fill="var(--ind)" stroke="var(--surface)" stroke-width="2"/></svg>`;
+  }
+  const vs = pts.map(p => p.v);
+  let lo = Math.min(...vs), hi = Math.max(...vs);
+  if (hi === lo) { hi += Math.abs(hi || 1) * 0.005; lo -= Math.abs(lo || 1) * 0.005; }
+  const pad = (hi - lo) * 0.18; lo -= pad; hi += pad;
+  const x = i => PL + (i * (W - PL - PR)) / (pts.length - 1);
+  const y = v => PT + (H - PT - PB) * (1 - (v - lo) / (hi - lo));
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.v).toFixed(1)}`).join("");
+  const dots = pts.map((p, i) =>
+    `<circle class="pt" cx="${x(i).toFixed(1)}" cy="${y(p.v).toFixed(1)}" r="${i === pts.length - 1 ? 5 : 3.2}"
+      fill="${i === pts.length - 1 ? "var(--ind)" : "var(--grid)"}" stroke="var(--surface)" stroke-width="2"
+      data-d="${esc(p.d)}" data-v="${esc(p.raw)}"><title>${esc(p.d)} · ${esc(p.raw)}</title></circle>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
+    aria-label="${pts.length}일 추이, 마지막 값 ${esc(pts[pts.length - 1].raw)}">
+<line x1="${PL}" y1="${(PT + H - PB) / 2}" x2="${W - PR}" y2="${(PT + H - PB) / 2}" stroke="var(--grid)" stroke-width="1" stroke-dasharray="3 4"/>
+<path d="${d}" fill="none" stroke="var(--ind)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+${dots}</svg>`;
+}
+
+function renderTrend() {
+  const days = S.index.days;
+  const cards = S.index.series.map(s => {
+    const pts = days.filter(d => d.market[s.key])
+      .map(d => ({ d: d.date.slice(5), v: d.market[s.key].v, raw: d.market[s.key].raw }));
+    if (!pts.length) return "";
+    const last = days.filter(d => d.market[s.key]).slice(-1)[0].market[s.key];
+    return `<div class="spark">
+<div class="t"><b>${esc(s.label)}</b>
+  <span class="last num">${esc(last.raw)}</span>
+  <span class="dd num ${dirClass(last.dir)}">${arrow(last.dir)} ${esc(last.pctText || last.chg || "")}</span></div>
+${sparkSVG(pts, last.dir)}
+<div class="foot"><span class="num">${esc(pts[0].d)}</span><span>${pts.length}일</span><span class="num">${esc(pts[pts.length - 1].d)}</span></div></div>`;
+  }).join("");
+
+  $("#p-trend").innerHTML = `
+<header class="mast"><div class="eyebrow"><i></i>TRENDS</div>
+<h1>시황 지표 추이</h1>
+<p class="dek">각 브리핑의 마감 시황에 적힌 종가를 날짜순으로 이은 것입니다. 지표마다 단위와 자릿수가 달라 한 축에 겹치지 않고 따로 그렸습니다. 점 위에 마우스를 올리면 그날 값이 나옵니다. 브리핑이 쌓일수록 선이 길어집니다.</p></header>
+<div class="spark-grid">${cards}</div>`;
+
+  const tip = $("#tip");
+  $("#p-trend").querySelectorAll("circle.pt").forEach(c => {
+    const show = e => {
+      tip.textContent = c.dataset.d + " · " + c.dataset.v;
+      const r = c.getBoundingClientRect();
+      tip.style.left = Math.min(window.innerWidth - 150, r.left) + "px";
+      tip.style.top = (r.top - 34) + "px";
+      tip.classList.add("on");
+    };
+    c.addEventListener("mouseenter", show);
+    c.addEventListener("focus", show);
+    c.addEventListener("mouseleave", () => tip.classList.remove("on"));
+    c.addEventListener("blur", () => tip.classList.remove("on"));
+  });
+}
+
+/* ---------------- 검색 ---------------- */
+async function ensureSearch() {
+  if (!S.search) S.search = await fetch("data/search.json").then(r => r.json());
+  return S.search;
+}
+
+function hl(text, q) {
+  const i = text.toLowerCase().indexOf(q.toLowerCase());
+  if (i < 0) return esc(text.slice(0, 160));
+  const from = Math.max(0, i - 50);
+  const seg = text.slice(from, from + 190);
+  const j = seg.toLowerCase().indexOf(q.toLowerCase());
+  return (from ? "…" : "") + esc(seg.slice(0, j)) + "<mark>" + esc(seg.slice(j, j + q.length)) + "</mark>" + esc(seg.slice(j + q.length));
+}
+
+async function runSearch(q) {
+  const box = $("#res");
+  if (!q || q.trim().length < 2) { box.innerHTML = `<p class="empty">두 글자 이상 입력하면 쌓인 모든 브리핑에서 찾습니다.</p>`; return; }
+  const data = await ensureSearch();
+  const needle = q.trim().toLowerCase();
+  const out = [];
+  data.days.slice().reverse().forEach(day => {
+    day.i.forEach((it, idx) => {
+      const hay = (it.t + " " + it.x).toLowerCase();
+      if (hay.includes(needle)) out.push({ d: day.d, idx, sec: it.s, t: it.t, x: it.x });
+    });
+  });
+  $("#cnt").textContent = out.length ? `${out.length}건` : "";
+  box.innerHTML = out.length
+    ? out.slice(0, 80).map(r => `<a href="#${r.d}/${r.idx}">
+<div class="meta"><span class="num">${esc(r.d)}</span><span>·</span><span>${esc(r.sec)}</span></div>
+<div class="rt">${hl(r.t, q)}</div><div class="rx">${hl(r.x, q)}</div></a>`).join("")
+    : `<p class="empty">‘${esc(q)}’ 가 들어간 기사가 없습니다.</p>`;
+}
+
+function renderSearchPane() {
+  if ($("#res")) return;
+  $("#p-search").innerHTML = `
+<header class="mast"><div class="eyebrow"><i></i>SEARCH</div>
+<h1>전체 날짜 검색</h1>
+<p class="dek">쌓인 모든 브리핑의 기사 제목과 ‘한 줄 요약 · 왜 중요한가’ 본문에서 찾습니다.</p></header>
+<div class="searchbox"><input id="q" type="search" placeholder="예: 반도체, 호르무즈, 환율, 국방예산" autocomplete="off"></div>
+<p class="hint">결과 <span id="cnt"></span></p>
+<div class="res" id="res"></div>`;
+  let t;
+  $("#q").addEventListener("input", e => { clearTimeout(t); t = setTimeout(() => runSearch(e.target.value), 160); });
+  runSearch("");
+}
+
+/* ---------------- 전체 날짜 ---------------- */
+function renderArchive() {
+  const days = S.index.days.slice().reverse();
+  $("#p-archive").innerHTML = `
+<header class="mast"><div class="eyebrow"><i></i>ARCHIVE</div>
+<h1>전체 날짜</h1>
+<p class="dek">평일마다 한 편씩 쌓입니다. 현재 ${days.length}편.</p></header>
+<div class="days">${days.map(d => `<a class="day" href="#${d.date}">
+<span class="d num">${esc(d.date)} (${esc(d.weekday)})</span>
+<span class="l">${esc(d.lead)}</span>
+<span class="c num">기사 ${d.counts.items}건 · 주가 반응 ${d.counts.impact}건</span></a>`).join("")}</div>`;
+}
+
+/* ---------------- 라우팅 ---------------- */
+function setTab(name) {
+  ["brief", "trend", "search", "archive"].forEach(n => {
+    $("#t-" + n).setAttribute("aria-selected", String(n === name));
+    $("#p-" + n).classList.toggle("on", n === name);
+  });
+  if (name === "trend") renderTrend();
+  if (name === "search") renderSearchPane();
+  if (name === "archive") renderArchive();
+}
+
+async function loadDay(date) {
+  if (!S.cache[date]) S.cache[date] = await fetch(`data/${date}.json`).then(r => r.json());
+  S.date = date;
+  $("#datesel").value = date;
+  const i = S.index.days.findIndex(d => d.date === date);
+  $("#prev").disabled = i <= 0;
+  $("#next").disabled = i < 0 || i >= S.index.days.length - 1;
+  renderBrief(S.cache[date]);
+}
+
+async function route() {
+  const h = decodeURIComponent(location.hash.replace(/^#/, ""));
+  const [date, idx] = h.split("/");
+  if (["trend", "search", "archive"].includes(date)) { setTab(date); return; }
+  const known = S.index.days.some(d => d.date === date);
+  const target = known ? date : S.index.days[S.index.days.length - 1].date;
+  if (idx !== undefined) S.focus = +idx;
+  setTab("brief");
+  await loadDay(target);
+}
+
+async function boot() {
+  try {
+    S.index = await fetch("data/index.json").then(r => r.json());
+  } catch (e) {
+    $("#p-brief").innerHTML = `<p class="empty">데이터를 불러오지 못했습니다. data/index.json 이 저장소에 있는지 확인해 주세요.</p>`;
+    return;
+  }
+  if (!S.index.days.length) { $("#p-brief").innerHTML = `<p class="empty">아직 브리핑이 없습니다.</p>`; return; }
+
+  $("#datesel").innerHTML = S.index.days.slice().reverse()
+    .map(d => `<option value="${d.date}">${d.date} (${d.weekday})</option>`).join("");
+  $("#foot-updated").textContent = `마지막 갱신 ${S.index.updated} · 수록 ${S.index.days.length}편`;
+
+  $("#datesel").addEventListener("change", e => { location.hash = e.target.value; });
+  $("#prev").addEventListener("click", () => {
+    const i = S.index.days.findIndex(d => d.date === S.date);
+    if (i > 0) location.hash = S.index.days[i - 1].date;
+  });
+  $("#next").addEventListener("click", () => {
+    const i = S.index.days.findIndex(d => d.date === S.date);
+    if (i >= 0 && i < S.index.days.length - 1) location.hash = S.index.days[i + 1].date;
+  });
+  ["brief", "trend", "search", "archive"].forEach(n => {
+    $("#t-" + n).addEventListener("click", () => {
+      if (n === "brief") { location.hash = S.date || S.index.days[S.index.days.length - 1].date; }
+      else { location.hash = n; }
+    });
+  });
+  window.addEventListener("hashchange", route);
+  await route();
+}
+boot();
+</script>
+</body>
+</html>

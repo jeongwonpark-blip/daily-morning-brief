@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="2026년 9월 21일 아침 브리핑 — 마감 시황과 경제·정치·안보·부동산·국제 22건.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="아침 브리핑 2026-09-21">
+<meta property="og:description" content="2026년 9월 21일 아침 브리핑 — 마감 시황과 경제·정치·안보·부동산·국제 22건.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F4A8C'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>아침 브리핑 2026-09-21</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@700&display=swap">
+
+<style>
+:root{
+  --paper:#FAFAFB; --surface:#FFFFFF; --raise:#F3F4F7;
+  --ink:#16171C; --body:#3A3D47; --muted:#5C5F6B; --faint:#8B8E99;
+  --line:#E4E5EA; --hair:#EDEEF2;
+  --ind:#2F4A8C; --ind-soft:#E9EDF8; --ind-line:#D3DCF0;
+  --up:#C42B2B; --down:#17539E;
+  --shadow:0 1px 2px rgba(22,23,28,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111216; --surface:#191A1F; --raise:#20222A;
+    --ink:#EBECEF; --body:#C4C6CD; --muted:#9A9DA8; --faint:#73767F;
+    --line:#2B2D36; --hair:#23252C;
+    --ind:#9CB2EB; --ind-soft:#1C2436; --ind-line:#2C3550;
+    --up:#FF7A7A; --down:#79ADF5;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111216; --surface:#191A1F; --raise:#20222A;
+  --ink:#EBECEF; --body:#C4C6CD; --muted:#9A9DA8; --faint:#73767F;
+  --line:#2B2D36; --hair:#23252C;
+  --ind:#9CB2EB; --ind-soft:#1C2436; --ind-line:#2C3550;
+  --up:#FF7A7A; --down:#79ADF5;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",-apple-system,sans-serif;
+  font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.num{font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace; font-variant-numeric:tabular-nums; font-weight:500}
+.wrap{max-width:1360px; margin:0 auto; padding-inline:20px}
+
+/* ---- sticky nav ---- */
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line)}
+.nav-in{display:flex; align-items:center; gap:18px; height:52px; overflow-x:auto; scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.brand{font-family:"Noto Serif KR",serif; font-weight:700; font-size:16px; white-space:nowrap; letter-spacing:-.02em}
+.navlinks{display:flex; gap:4px; margin-left:auto}
+.navlinks a{font-size:13px; color:var(--muted); text-decoration:none; padding:5px 10px; border-radius:7px; white-space:nowrap}
+.navlinks a:hover{background:var(--raise); color:var(--ink)}
+.navlinks a:focus-visible,.tool:focus-visible,summary:focus-visible,.card h3 a:focus-visible{outline:2px solid var(--ind); outline-offset:2px}
+
+/* ---- masthead ---- */
+.mast{padding-block:44px 26px; border-bottom:1px solid var(--line)}
+.eyebrow{display:flex; align-items:center; gap:9px; font-size:11px; letter-spacing:.18em; font-weight:600; color:var(--faint)}
+.eyebrow span.rule{width:26px; height:2px; background:var(--ind); display:inline-block}
+h1{font-family:"Noto Serif KR",serif; font-weight:700; font-size:clamp(28px,4.4vw,46px);
+  line-height:1.16; letter-spacing:-.035em; margin:14px 0 10px; text-wrap:balance}
+.dek{color:var(--muted); font-size:13.5px; margin:0; max-width:62ch}
+
+/* ---- market ---- */
+.mkt{padding-block:26px}
+.mkt-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px}
+.mkt-head h2{font-size:15px; margin:0; letter-spacing:-.01em}
+.mkt-head .cap{font-size:12px; color:var(--faint)}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:10px}
+.kpi{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+  display:flex; flex-direction:column; gap:4px; box-shadow:var(--shadow)}
+.kpi .k{font-size:12px; color:var(--muted); font-weight:500}
+.kpi .v{font-size:25px; letter-spacing:-.025em; font-weight:600}
+.kpi .d{font-size:12.5px; font-weight:600}
+.subs{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:12px; padding:11px 16px;
+  background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.sub{display:flex; align-items:baseline; gap:7px; font-size:12.5px}
+.sub .k{color:var(--muted)}
+.notes{margin:14px 0 0; padding-left:17px; font-size:12px; line-height:1.65; color:var(--faint)}
+.notes li{margin-bottom:3px}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--muted)}
+
+/* ---- sections ---- */
+.sec{padding-block:30px; border-top:1px solid var(--line)}
+.sec-head{display:flex; align-items:center; gap:10px; margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif KR",serif; font-weight:700; font-size:22px; margin:0; letter-spacing:-.03em}
+.sec-head .n{font-size:12px; color:var(--faint); font-weight:600}
+.tool{margin-left:auto; font:inherit; font-size:12.5px; color:var(--muted); background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; padding:5px 11px; cursor:pointer}
+.tool:hover{color:var(--ink); border-color:var(--ind)}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(318px,1fr)); gap:14px; align-items:start}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:16px 17px;
+  display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow)}
+.card-top{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.pill{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600;
+  padding:3px 9px; border-radius:999px; white-space:nowrap}
+.pill.hit{background:var(--ind-soft); color:var(--ind); border:1px solid var(--ind-line)}
+.pill.na{background:var(--raise); color:var(--faint)}
+.src{margin-left:auto; font-size:11.5px; color:var(--faint); font-weight:500; white-space:nowrap}
+.card h3{margin:0; font-size:16.5px; line-height:1.42; letter-spacing:-.018em; font-weight:600; text-wrap:balance}
+.card h3 a{color:var(--ink); text-decoration:none; background-image:linear-gradient(var(--line),var(--line));
+  background-size:100% 1px; background-position:0 100%; background-repeat:no-repeat; padding-bottom:1px}
+.card h3 a:hover{color:var(--ind); background-image:linear-gradient(var(--ind),var(--ind))}
+.lede{margin:0; font-size:13.5px; line-height:1.68; color:var(--body)}
+.chips{display:flex; flex-wrap:wrap; gap:5px}
+.chip{display:inline-flex; align-items:baseline; gap:5px; background:var(--raise);
+  border-radius:999px; padding:4px 10px; font-size:11.5px; color:var(--faint); white-space:nowrap}
+.chip.hit{background:var(--ind-soft); color:var(--ind)}
+.chip b{font-weight:600}
+
+details{border-top:1px solid var(--hair); padding-top:10px; margin-top:auto}
+summary{list-style:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--muted);
+  display:flex; align-items:center; gap:6px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋"; margin-left:auto; font-weight:400; color:var(--faint)}
+details[open] summary::after{content:"－"}
+summary:hover{color:var(--ind)}
+.detail{display:flex; flex-direction:column; gap:9px; padding-top:11px}
+.lab{font-size:10.5px; letter-spacing:.1em; font-weight:700; color:var(--faint)}
+.detail p{margin:0; font-size:13px; line-height:1.72; color:var(--muted)}
+.impact{background:var(--ind-soft); border:1px solid var(--ind-line); border-radius:10px;
+  padding:12px 13px; display:flex; flex-direction:column; gap:7px}
+.impact .lab{color:var(--ind)}
+.impact p{color:var(--body)}
+.na-line{display:flex; align-items:center; gap:8px; background:var(--raise); border-radius:9px; padding:8px 12px}
+.na-line span:last-child{font-size:12.5px; color:var(--faint)}
+.srcline{font-size:11.5px; color:var(--faint); line-height:1.55}
+.srcline a{color:var(--ind)}
+
+/* ---- tables ---- */
+.tablewrap{overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:13px; box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:620px}
+th{text-align:left; font-size:10.5px; letter-spacing:.1em; font-weight:700; color:var(--faint);
+  padding:14px 16px 10px; border-bottom:1px solid var(--line)}
+td{vertical-align:top; padding:13px 16px; font-size:13px; line-height:1.68; border-bottom:1px solid var(--hair); color:var(--muted)}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--ink); font-weight:600}
+td:nth-child(2){color:var(--body)}
+.disc{margin:11px 0 0; font-size:12px; line-height:1.65; color:var(--faint)}
+
+footer{border-top:1px solid var(--line); margin-top:36px; padding-block:26px 46px;
+  font-size:12px; line-height:1.7; color:var(--faint)}
+footer p{margin:0 0 6px}
+@media (max-width:640px){
+  .mast{padding-block:30px 20px}
+  .kpi .v{font-size:22px}
+  .navlinks{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap nav-in">
+<span class="brand">아침 브리핑</span>
+<span class="num" style="font-size:12px;color:var(--faint)">09.21 (월)</span>
+<div class="navlinks"><a href="#econ">경제</a><a href="#pol">정치</a><a href="#sec">안보·군사</a><a href="#re">부동산</a><a href="#intl">국제</a><a href="#ap1">부록</a></div>
+</div></nav>
+
+<header class="mast"><div class="wrap">
+<div class="eyebrow"><span class="rule"></span>MORNING BRIEF</div>
+<h1>아침 브리핑 · 2026년 9월 21일 (월)</h1>
+<p class="dek">작성 기준 오전 10시 KST · 박정원 · 한국경제 · 인베스팅닷컴 · Yahoo Finance · 기사 22건, 이 중 주가 반응이 수치로 확인된 것은 3건입니다. 카드의 ‘배경과 시장 영향’을 열면 원문 브리핑의 상세 설명이 그대로 나옵니다.</p>
+</div></header>
+
+<section class="mkt"><div class="wrap">
+<div class="mkt-head"><h2>📊 오늘의 마감 시황</h2><span class="cap">직전 거래일 2026-09-18(금) 종가 · 전 거래일 대비 · 출처 kr.investing.com</span></div>
+<div class="kpis"><div class="kpi"><span class="k">코스피</span><span class="v num">6,894.23</span><span class="d num up">▲ +178.82 (+2.66%)</span></div><div class="kpi"><span class="k">S&amp;P 500</span><span class="v num">7,650.50</span><span class="d num up">▲ +12.74 (+0.17%)</span></div><div class="kpi"><span class="k">원/달러</span><span class="v num">1,386.19</span><span class="d num up">▲ +5.50 (+0.40%)</span></div><div class="kpi"><span class="k">국고채 10년</span><span class="v num">4.460%</span><span class="d num down">▼ −5.2bp (−1.15%)</span></div><div class="kpi"><span class="k">WTI 10월물</span><span class="v num">$100.30</span><span class="d num down">▼ −1.61 (−1.58%)</span></div></div>
+<div class="subs"><span class="sub"><span class="k">코스닥</span><b class="num">827.12</b><b class="num up">+0.60%</b></span><span class="sub"><span class="k">나스닥</span><b class="num">26,522.54</b><b class="num up">+0.39%</b></span><span class="sub"><span class="k">다우</span><b class="num">51,682.64</b><b class="num down">−0.18%</b></span><span class="sub"><span class="k">브렌트 11월물</span><b class="num">$103.87</b><b class="num down">−0.91%</b></span><span class="sub"><span class="k">미 10년물</span><b class="num">4.996%</b><b class="num up">+0.99%</b></span><span class="sub"><span class="k">VIX</span><b class="num">14.81</b><b class="num down">−4.08%</b></span></div>
+<ul class="notes"><li>색 표기는 한국 관행 — 상승 빨강, 하락 파랑.</li><li>원/달러는 인베스팅닷컴 24시간 기준 종가. 서울외환시장 오후 3시 30분 기준 종가는 1,383.3원(전 거래일 +1.1원, 한국경제).</li><li>미 10년물은 미 재무부 고시 기준 5.01%로, 인베스팅닷컴 수치(4.996%)와 소폭 차이.</li><li>WTI·브렌트유는 주말 개장 세션에서 추가 하락 중 — 21일 오전 기준 각각 94달러대, 103달러대(정규 마감 수치 아님).</li></ul>
+</div></section>
+
+<section class="sec" id="econ"><div class="wrap">
+<div class="sec-head"><h2>경제</h2><span class="n num">5건</span>
+<button class="tool" type="button" data-sec="econ">모두 펼치기</button></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="pill hit">▲ 주가 반응 확인</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092172127" target="_blank" rel="noopener">9월 1~20일 수출 714억달러 ‘역대 최대’… 반도체가 절반 가까이</a></h3>
+<p class="lede">반도체 341억2000만달러(+259.4%)로 전체 수출의 47.8%. 무역흑자도 같은 기간 최대.</p>
+<div class="chips"><span class="chip"><span>수출</span><b class="num up">714억$ · +78.3%</b></span><span class="chip"><span>반도체 비중</span><b class="num flat">47.8%</b></span><span class="chip"><span>무역흑자</span><b class="num up">230억$</b></span><span class="chip hit"><span>21일 코스피</span><b class="num up">6,990.54 · +1.40%</b></span><span class="chip hit"><span>삼성전자</span><b class="num up">+3.45%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>기존 최고였던 6월(617억달러)을 97억달러 웃돈 수치. 조업일수는 15.5일로 지난해보다 하루 적었다.</p><p>수입은 484억4000만달러(+26.7%)에 그쳐 무역수지 230억달러 흑자. 대만 +128.5%, 미국 +118.0%, 중국 +113.8%로 AI 반도체 수요 한 곳에 의존하는 구조가 수치로 드러났다.</p><div class="impact"><span class="lab">시장 영향 · 확인된 주가 반응</span><p>21일 오전 9시 7분 코스피 <b>6,990.54</b>(+1.40%)로 장중 7,000선 회복 · 삼성전자 <b>+3.45%</b>(27만원) · SK하이닉스 <b>+1.24%</b></p><p>18일 코스피 +2.66% 마감, 외국인이 8거래일 만에 <b>9,842억원 순매수</b> 전환. 같은 날 필라델피아 반도체지수 +2.78%(마이크론 +3.92%, 브로드컴 +2.97%, AMD +2.70%, 엔비디아 +1.34%)</p><p>수출의 47.8%를 반도체가 차지해 메모리 물량·단가가 대형주 이익 전망에 직접 반영. 반대로 에너지 수입액이 27.9% 늘어 에너지 투입 비중이 큰 업종에는 비용 부담.</p><p>한계 — 9월 1~20일 통계는 21일 오전 공표라 18일 종가에는 미반영. 이번 주 국내 증시는 추석 연휴로 3거래일만 열려 수급 공백 가능성.</p></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092172127" target="_blank" rel="noopener">“반도체가 수출 절반”…9월 20일까지 714억달러 ‘역대 최대’</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill hit">▲ 주가 반응 확인</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092062901" target="_blank" rel="noopener">반도체 소부장, 코스닥 시총 톱10 중 절반 차지</a></h3>
+<p class="lede">연초 0곳이던 소재·부품·장비 기업이 18일 기준 5곳. 시총 상위가 바이오에서 반도체로 교체됐다.</p>
+<div class="chips"><span class="chip"><span>설비투자 컨센</span><b class="num up">117조원 · +56%</b></span><span class="chip"><span>주성엔지니어링</span><b class="num up">올해 +629.52%</b></span><span class="chip hit"><span>18일 코스닥</span><b class="num up">827.12 · +0.60%</b></span><span class="chip hit"><span>21일 원익IPS</span><b class="num up">+3.37%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>삼성전자·SK하이닉스 올해 설비투자 컨센서스가 합산 117조원(전년 +56%)에 이르면서 발주 기대가 밸류체인 아래로 내려왔다.</p><p>평택 P4·청주 M15X 가동과 용인 Y1 발주가 가시화. 코스닥 시총 상위가 제약·바이오에서 반도체로 교체된 것은 지수 성격 자체가 바뀌었다는 뜻이기도 하다.</p><div class="impact"><span class="lab">시장 영향 · 확인된 주가 반응</span><p>18일 코스닥 시총 톱10 — 주성엔지니어링 4위 · 원익IPS 6위 · 이오테크닉스 7위 · 리노공업 8위 · 심텍 9위. 주성엔지니어링은 올해만 <b>+629.52%</b>, 시가총액 8조2,425억원 증가.</p><p>18일 코스닥 +0.60%(827.12) 마감. 21일 오전 원익IPS +3.37%, 심텍 +1.35%, 이오테크닉스 +1.32%인 반면 주성엔지니어링 −0.49%로 소부장 안에서도 흐름이 갈렸다.</p><p>장비는 주문에서 출하까지 4~5개월이 걸려 전공정 장비가 먼저 반영되고, 부품·소재는 장비 반입 후 가동률이 올라야 실적 개선 시점이 온다.</p><p>한계 — 증권가가 핵심 변수로 꼽는 4분기 대규모 수주는 아직 미확정. 21일 코스닥 지수 자체는 −0.04%(826.80)로 대형 반도체주와 다른 방향.</p></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092062901" target="_blank" rel="noopener">반도체 소부장의 시간…코스닥 시총 톱10 중 절반 차지</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092062831" target="_blank" rel="noopener">원·달러 환율 7거래일 만에 50원 급등… 1380원대</a></h3>
+<p class="lede">9일 1,336.1원까지 내렸다가 반등. 단기 1,400원은 열어두되 추세적 약세로는 보지 않는다.</p>
+<div class="chips"><span class="chip"><span>9일 저점</span><b class="num flat">1,336.1원</b></span><span class="chip"><span>경상흑자 전망</span><b class="num flat">4,500억$ · GDP 20%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>중동 전쟁 장기화로 고유가가 이어지는 가운데 미국이 기준금리 인상 사이클에 들어서며 달러가 강세로 전환.</p><p>국민연금이 환헤지를 중단하며 단기 바닥 인식이 퍼졌고, 수입업체는 달러 매수에 나선 반면 수출업체는 매도를 늦추는 ‘래깅’에 들어갔다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092062831" target="_blank" rel="noopener">“환율, 1400원 뚫을 수 있지만 추세적 상승은 어려울 듯”</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092063741" target="_blank" rel="noopener">국고채 3년물 연 4.035%… 금리 상승세 지속</a></h3>
+<p class="lede">15일 4.091%로 올해 최고. 한은의 추가 인상 전망과 국채 공급 증가가 겹쳤다.</p>
+<div class="chips"><span class="chip"><span>3년물</span><b class="num up">4.035% · +0.021%p</b></span><span class="chip"><span>내년 국채 발행</span><b class="num up">283조9,750억 · +4.1%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>한국은행이 내년 상반기까지 기준금리를 연 3.75%로 0.75%포인트 더 올릴 것이라는 전망이 확산된 것이 1차 요인.</p><p>내년 원화 국채·주요 정부보증채가 283조9,750억원으로 11조2,100억원(4.1%) 늘어 공급 부담이 발행금리를 밀어 올리고 있다. 조달금리는 가계대출·회사채·부동산 PF의 기준점이 된다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092063741" target="_blank" rel="noopener">환율·채권…3년물 국고채, 연 4%선 등락할 듯</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092062841" target="_blank" rel="noopener">홍의락 가스공사 사장 “석유공사 통합, 소액주주 보호가 최우선”</a></h3>
+<p class="lede">석유공사는 2020년부터 완전자본잠식. 가스공사는 요금 현실화도 함께 요구했다.</p>
+<div class="chips"><span class="chip"><span>도시가스 미수금</span><b class="num flat">14조원</b></span><span class="chip"><span>연간 금융비용</span><b class="num flat">5,000억원</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>석유공사는 2020년부터 완전자본잠식 상태여서, 단순 통합을 서두르면 우량 상장사인 가스공사의 재무 상태까지 악화할 수 있다는 우려가 깔려 있다.</p><p>가스공사는 14조원 미수금으로 연 5,000억원의 금융비용을 부담해 요금 현실화를 함께 요구. AI 데이터센터·반도체 클러스터에서 LNG 발전 비중이 커지는 국면이라 통합 설계가 산업용 전력 조달 구조로도 연결된다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092062841" target="_blank" rel="noopener">[단독] 홍의락 “가스·석유공사 통합, 소액주주 보호가 최우선”</a></p></div>
+</details>
+</article></div></div></section><section class="sec" id="pol"><div class="wrap">
+<div class="sec-head"><h2>정치</h2><span class="n num">4건</span>
+<button class="tool" type="button" data-sec="pol">모두 펼치기</button></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092168697" target="_blank" rel="noopener">이재명 대통령 지지율 34.8%… 10주 만에 반등</a></h3>
+<p class="lede">9주 연속 하락을 멈췄다. 기자회견의 연임 포기·국정 쇄신 메시지가 흐름을 돌렸다는 분석.</p>
+<div class="chips"><span class="chip"><span>긍정</span><b class="num up">34.8% · +1.0%p</b></span><span class="chip"><span>부정</span><b class="num flat">63.4%</b></span><span class="chip"><span>민주 40.2% / 국힘</span><b class="num flat">38.5%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>7월 3주 48.9%에서 14%포인트 넘게 빠진 뒤 처음 나온 반등. 조사기관은 대국민 기자회견의 연임 포기·공소 취소·국정 쇄신 메시지가 흐름을 돌린 것으로 분석했다.</p><p>부정평가는 63.4%로 여전히 긍정의 두 배 가까이 높다. 정당 지지도 격차는 오차범위 안인 1.7%포인트까지 좁혀졌다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092168697" target="_blank" rel="noopener">李대통령 지지율 34.8%…10주 만에 ‘반등’ [리얼미터]</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092170727" target="_blank" rel="noopener">당정, 농지 전수조사 후속… “경미한 위반은 정상 이용으로”</a></h3>
+<p class="lede">투기 목적이 아닌 불법 임대차·무단 휴경은 농지은행 위탁 시 처분을 유예한다.</p>
+<div class="chips"><span class="chip"><span>특별조치법</span><b class="num flat">연내 제정</b></span><span class="chip"><span>개정 농지법</span><b class="num flat">내년 상반기</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>전수조사가 시작되며 농촌에서 관행적으로 이뤄져 온 임대차와 휴경까지 일괄 처분 대상이 될 수 있다는 반발이 커진 데 대한 조정.</p><p>농지 처분 명령은 소유권 강제 정리로 이어지는 사안이라 대상 범위 설정이 곧 실효 규모를 결정한다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092170727" target="_blank" rel="noopener">[속보] 당정 “경미한 농지법 위반은 정상적 이용…명백한 투기는 조치”</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/202609217034H" target="_blank" rel="noopener">국민의힘 지지층 53.5%, 한동훈 복당 찬성</a></h3>
+<p class="lede">전체 응답은 찬성 33.2%·반대 32.4%로 팽팽. 대구·경북에서도 찬성이 우세했다.</p>
+<div class="chips"><span class="chip"><span>지지층 찬성</span><b class="num up">53.5%</b></span><span class="chip"><span>TK</span><b class="num flat">찬 43.3 / 반 24.4</b></span><span class="chip"><span>민주·조국 합당</span><b class="num down">반대 43.8%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>보수 성향이 강한 대구·경북에서도 찬성이 반대를 19%포인트 가까이 앞선 것은 당내 역학 변화를 시사한다.</p><p>조사기관은 김승원 법무부 장관 후보자 낙마 과정에서 한 의원이 존재감을 드러낸 점을 배경으로 꼽았다. 민주당·조국혁신당 합당은 반대 43.8% · 찬성 17.0%.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/202609217034H" target="_blank" rel="noopener">野 지지층 53.5% ‘한동훈 복당 찬성’…TK서도 찬성 우세 [에스티아이]</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/202609206157i" target="_blank" rel="noopener">민주당 개헌추진단 출범… “내년 상반기 안에 합의 개헌안”</a></h3>
+<p class="lede">대통령이 연임 의사를 부인하며 걸림돌이 정리됐다는 판단. 국힘 입장은 여전히 부정적이다.</p>
+<div class="chips"><span class="chip"><span>목표</span><b class="num flat">내년 상반기</b></span><span class="chip"><span>의결 요건</span><b class="num flat">국회 재적 2/3</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>대통령이 18일 기자회견에서 “개헌을 통한 연임은 헌법상 불가능하며 연임할 생각이 전혀 없다”고 선을 그으며 야당이 제기해 온 걸림돌이 정리됐다는 것이 여당의 판단.</p><p>권력구조 개혁·정치제도 개선·사회권적 기본권 강화를 포함한 포괄적 개헌 구상. 다만 국민의힘 협조 없이는 불가능한데 공식 입장은 여전히 부정적이다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/202609206157i" target="_blank" rel="noopener">민주당 “내년 상반기 안에 합의된 개헌안 내놓자”</a></p></div>
+</details>
+</article></div></div></section><section class="sec" id="sec"><div class="wrap">
+<div class="sec-head"><h2>안보·군사</h2><span class="n num">4건</span>
+<button class="tool" type="button" data-sec="sec">모두 펼치기</button></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092065591" target="_blank" rel="noopener">북한, 동해상으로 탄도미사일 2차례 발사… 올해 14번째</a></h3>
+<p class="lede">20일 원산 일대에서 발사, 각각 450km·600km 비행. 유엔총회와 미·중 정상회담을 앞뒀다.</p>
+<div class="chips"><span class="chip"><span>비행거리</span><b class="num flat">450 · 600km</b></span><span class="chip"><span>올해</span><b class="num flat">14번째</b></span><span class="chip"><span>직전 발사</span><b class="num flat">8일 만</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>22일 개막하는 유엔 총회와 북한 문제가 논의될 것으로 보이는 24일 미·중 정상회담을 앞두고 이뤄져, 핵·미사일 억제력 건설은 타협 대상이 아니라는 점을 각인시키려는 의도라는 해석이 나온다.</p><p>일본 방위성은 두 발 모두 일본 EEZ 밖에 낙하한 것으로 추정했고, 국가안보실은 안보리 결의 위반으로 규정하며 긴급 점검회의를 열었다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092065591" target="_blank" rel="noopener">北, 동해상에 탄도미사일 2차례 발사</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092057321" target="_blank" rel="noopener">내년 국방예산 73조2777억원… 사상 첫 70조 돌파</a></h3>
+<p class="lede">증가율 8.2%는 2007년 이후 20년 만의 최대. 핵추진잠수함 예산이 처음 반영됐다.</p>
+<div class="chips"><span class="chip"><span>총액</span><b class="num up">73조2,777억 · +8.2%</b></span><span class="chip"><span>방위력개선비</span><b class="num up">22조7,112억 · +13.8%</b></span><span class="chip"><span>KF-21 양산</span><b class="num up">1.4조 → 3.3조</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>방위력개선비는 2008년 이후 최대 폭으로 증가했고, 핵추진잠수함 도입 예산이 처음 반영됐다.</p><p>정부는 미 트럼프 행정부와 늦어도 2035년까지 국방비를 GDP 대비 3.5%까지 올리는 방향에 공감한 상태여서, 이번 편성은 다년간 이어질 조달 확대의 출발점 성격을 갖는다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092057321" target="_blank" rel="noopener">내년 국방비 73조원…전시작전권 환수·핵잠수함 도입에 쓴다</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092063651" target="_blank" rel="noopener">한미 KIDD 공동성명서 ‘전작권 전환 조건 충족’ 문구 빠져</a></h3>
+<p class="lede">지난해 있던 표현이 사라져 진도 평가가 달라졌다는 신호로 읽힌다.</p>
+<div class="chips"><span class="chip"><span>목표 시한</span><b class="num flat">임기 내 · 2030년 5월</b></span><span class="chip"><span>11월 SCM</span><b class="num flat">연합사 운용능력 검증</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>국방부는 11월 한미안보협의회(SCM)에서 연합사령부 운용능력 검증을 마치고 전환 연도를 도출하는 것을 목표로 삼고 있다.</p><p>1년 전 회의에서는 “상당한 진전에 공감”이라는 별도 설명이 나왔던 만큼 이번 문구 삭제는 진도 평가가 달라졌다는 신호로 읽힌다. 현대전이 AI·드론 중심으로 바뀌며 전환 조건 자체가 강화되고 있다는 지적도 나온다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092063651" target="_blank" rel="noopener">韓美 “전작권 전환 가속화 협력” 한다지만…</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092057291" target="_blank" rel="noopener">장거리 자폭무인기 ‘K-LUCAS’ 2030년 이전 전력화</a></h3>
+<p class="lede">당초 계획보다 5년 앞당겼다. 저가 소모성 드론도 2030년까지 2만 대 이상 확보한다.</p>
+<div class="chips"><span class="chip"><span>드론·대드론 예산</span><b class="num up">8,061억 · +18.8%</b></span><span class="chip"><span>AI·유무인 복합</span><b class="num up">7,727억 · +55.5%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>우크라이나·중동 전쟁에서 저가 드론으로 고가 방공미사일을 소진시키는 전술이 보편화된 것이 배경.</p><p>2023년 창설된 드론작전사령부는 ‘국방드론본부’로 개편돼 직접 작전 대신 전력 발전·획득 지원을 맡는다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092057291" target="_blank" rel="noopener">장거리 자폭무인기 띄운다…소모성 드론 2만대 이상 비축</a></p></div>
+</details>
+</article></div></div></section><section class="sec" id="re"><div class="wrap">
+<div class="sec-head"><h2>부동산</h2><span class="n num">4건</span>
+<button class="tool" type="button" data-sec="re">모두 펼치기</button></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092169876" target="_blank" rel="noopener">8월 전국 1순위 청약경쟁률 5.34대 1… 38개월 만에 최저</a></h3>
+<p class="lede">분양가 상승에 대출 규제와 금리가 겹쳤다. 다만 청약의 69.2%는 서울 5개 단지에 몰렸다.</p>
+<div class="chips"><span class="chip"><span>전국</span><b class="num down">5.34대 1</b></span><span class="chip"><span>서울</span><b class="num down">112.00 → 91.27</b></span><span class="chip"><span>미분양</span><b class="num flat">6만8,217호</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>분양가 상승에 대출 규제와 금리 상승이 겹치면서 청약에 참여할 수 있는 수요층 자체가 얇아졌다는 분석.</p><p>다만 8월 전국 청약 접수 3만104건 중 69.2%가 서울 5개 단지에 몰려 ‘서울 집중’은 오히려 심해졌다. 7월 말 전국 미분양은 32개월 연속 6만호를 웃돌았다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092169876" target="_blank" rel="noopener">“당첨돼도 돈 부족해”…수도권도 청약 경쟁률 ‘하락’</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092063371" target="_blank" rel="noopener">경기 16곳·인천 4개 구, 규제지역 지정 요건 넘어서</a></h3>
+<p class="lede">조정대상 기준 0.14%, 투기과열 0.16%를 넘긴 지역. 군포·인천 연수 지정 가능성이 거론된다.</p>
+<div class="chips"><span class="chip"><span>수원 권선</span><b class="num up">4.27%</b></span><span class="chip"><span>화성 병점</span><b class="num up">4.08%</b></span><span class="chip"><span>인천 연수</span><b class="num up">0.87%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>경기 남부와 서울 접근성이 좋은 지역(안양 만안 3.46%, 부천 원미 2.39%, 의정부 1.32%)으로 상승세가 번졌고, 인천도 연수·부평(0.55%)·미추홀(0.36%)·계양(0.15%)이 모두 기준을 충족했다.</p><p>반도체 기업 성과급과 사내대출 확대로 늘어난 유동성이 비규제지역으로 흘러간 결과라는 해석. 지정되면 허가제·주담대 한도 축소·청약 규제 강화가 뒤따라 거래 조건이 바뀐다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092063371" target="_blank" rel="noopener">경기 군포·인천 연수도 ‘규제’ 묶이나</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092063131" target="_blank" rel="noopener">경기 전셋값 올해 5.33% 급등… ‘셔세권’이 주도</a></h3>
+<p class="lede">반도체 벨트 배후인 하남·화성 동탄·용인 기흥이 견인. 물건 부족이 핵심 요인이다.</p>
+<div class="chips"><span class="chip"><span>경기</span><b class="num up">+5.33% (작년 0.61%)</b></span><span class="chip"><span>전세 물건</span><b class="num down">−42.0%</b></span><span class="chip"><span>인천</span><b class="num up">+3.77%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>물건 부족이 핵심 요인 — 18일 기준 경기 전세 물건은 1년 전보다 42.0% 줄었다.</p><p>서울 외곽 집값 상승과 전·월세난에 밀린 실수요가 수도권으로 이동하면서 임차 시장 불안이 확산하는 구조다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092063131" target="_blank" rel="noopener">올해만 5.3% 뛴 경기 전셋값…‘셔세권’이 주도</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092173106" target="_blank" rel="noopener">삼성물산, 공사비 1조8275억 성수3지구 시공사 선정</a></h3>
+<p class="lede">최고 72층·11개 동·2,203세대. 포스터+파트너스와 협업해 최고 250m 타워를 제시했다.</p>
+<div class="chips"><span class="chip"><span>공사비</span><b class="num flat">1조8,275억원</b></span><span class="chip"><span>규모</span><b class="num flat">72층 · 2,203세대</b></span><span class="chip"><span>한강 조망</span><b class="num flat">1,216세대</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>한강변 초고층 재개발 물량이 대형 건설사 주택 부문 수주 잔고의 핵심 축이 된 국면에서 나온 대형 계약.</p><p>애플파크·홍콩 HSBC 본사를 설계한 포스터+파트너스와 협업(앞서 압구정4구역에도 참여). 조합원 959명 전원이 한강 조망 세대를 선택할 수 있도록 배치하는 등 설계 경쟁이 수주 결과를 가르는 방식이 굳어지고 있다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092173106" target="_blank" rel="noopener">삼성물산, 성수3지구 시공사 선정…단지명 ‘래미안 레비르 성수’</a></p></div>
+</details>
+</article></div></div></section><section class="sec" id="intl"><div class="wrap">
+<div class="sec-head"><h2>국제</h2><span class="n num">5건</span>
+<button class="tool" type="button" data-sec="intl">모두 펼치기</button></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="pill hit">▲ 주가 반응 확인</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/202609206240i" target="_blank" rel="noopener">미 10년물 5% 뚫었는데 나스닥은 올랐다</a></h3>
+<p class="lede">완만한 금리 상승 속도가 충격을 제한했다는 분석. 장기물이 더 높은 우상향 곡선이다.</p>
+<div class="chips"><span class="chip"><span>10년물</span><b class="num up">5.01%</b></span><span class="chip"><span>내재 변동성</span><b class="num flat">79.5bp</b></span><span class="chip hit"><span>나스닥</span><b class="num up">+0.39%</b></span><span class="chip hit"><span>VIX</span><b class="num down">14.81 · −4.08%</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>미 재무부 기준 18일 곡선은 장기물이 더 높은 우상향 형태. 금리 옵션시장이 반영한 10년물 변동성은 연율 79.5bp로, 금리가 5%에 육박했던 2023년 10월(134bp)의 59% 수준에 그쳤다.</p><p>연준이 16일 25bp 인상 후 추가 인상 가능성을 열어둔 상태라, 같은 금리 레벨이라도 ‘얼마나 빨리 가느냐’가 위험자산 가격에 다르게 작용하고 있다는 뜻이다.</p><div class="impact"><span class="lab">시장 영향 · 확인된 주가 반응</span><p>18일 인베스팅닷컴 기준 미 10년물 4.996%(+4.9bp) · 나스닥 <b>+0.39%</b>(26,522.54) · S&amp;P500 <b>+0.17%</b>(7,650.50) · 다우만 <b>−0.18%</b>(51,682.64)</p><p>같은 날 VIX −4.08%(14.81)로 15를 밑돌았고, 필라델피아 반도체지수는 +2.78%로 이틀 연속 급등.</p><p>금리 상승 속도가 완만하고 회사채 스프레드가 좁아 할인율 상승이 주식 전반으로 번지는 경로가 제한. 반면 AI 서버 하드웨어인 델(−3.46%)·슈퍼마이크로(−3.12%)는 하락해 기술주 안에서도 방향이 갈렸다.</p><p>한계 — 장기물이 더 높은 곡선이 유지되는 한 추가 금리 상승분은 아직 주가에 반영됐다고 보기 어렵다. 이번 주 미 국채 입찰과 24일 미·중 정상회담 결과 확인 필요.</p></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/202609206240i" target="_blank" rel="noopener">美 10년물 5% 뚫었는데 나스닥은 올랐다…미 증시 버틴 진짜 이유</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026091836217" target="_blank" rel="noopener">일본은행, 3개월 만에 기준금리 1.25%로 인상… 31년 만의 최고</a></h3>
+<p class="lede">유가 상승과 엔 약세로 물가 경계감이 커졌다. 미·일 금리차 축소 목적도 함께 갖는다.</p>
+<div class="chips"><span class="chip"><span>정책금리</span><b class="num up">1.0% → 1.25%</b></span><span class="chip"><span>1995년 이후</span><b class="num flat">최고</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>우에다 가즈오 총재 취임 이후 가장 빠른 인상 속도. 원유 가격 상승과 엔화 약세로 수입 에너지·식품 가격이 오르며 물가 경계감이 커진 것이 배경.</p><p>스콧 베선트 미 재무장관이 엔화 약세 시정 조치를 반복 요구했고 7월 말에는 미·일 공동 엔 매수 개입까지 있었던 만큼, 이번 인상은 미·일 금리차 축소라는 정책 목적도 함께 갖는다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026091836217" target="_blank" rel="noopener">[속보] 일본은행, 3개월만 기준금리 1.25%로 인상…31년만 최고</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092167907" target="_blank" rel="noopener">트럼프 “나라 전체 날려버릴 수도”… 이란에 최후통첩 시사</a></h3>
+<p class="lede">군사공격·경제압박·합의를 모두 선택지로 거론. 유엔총회 접촉 가능성도 열어뒀다.</p>
+<div class="chips"><span class="chip"><span>트럼프 연설</span><b class="num flat">22일</b></span><span class="chip"><span>페제시키안</span><b class="num flat">23일</b></span><span class="chip"><span>미·중 회담</span><b class="num flat">24일</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>전쟁 중인 두 나라 정상의 접촉 가능성이 열려 있는 상태. 미 국무부는 19일 중동 지역 미국민에게 경계 강화 경보를 냈고, 트럼프 대통령은 캠프 데이비드 주말 일정을 하루 앞당겨 복귀했다.</p><p>24일에는 미·중 정상회담도 예정돼 있어, 이번 주 한 주에 중동 전쟁·관세·핵심 광물·AI 규범이 동시에 테이블에 오른다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092167907" target="_blank" rel="noopener">트럼프 “나라 전체 날려버릴 수도”…이란에 최후통첩하나</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">한국경제</span></div>
+<h3><a href="https://www.hankyung.com/article/2026092063067" target="_blank" rel="noopener">이란 “종전 조건 이행 없으면 호르무즈 폐쇄 유지”</a></h3>
+<p class="lede">갈리바프 의회의장이 20일 밝혔다. 세계 해상 원유 수송의 핵심 통로다.</p>
+<div class="chips"><span class="chip"><span>조건</span><b class="num flat">종전·동결자금·제재 해제 등 5개</b></span><span class="chip"><span>의장</span><b class="num flat">“전투와 협상 병행”</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>호르무즈해협은 전 세계 해상 원유 수송의 핵심 통로여서, 폐쇄 지속 여부가 국제유가의 하방을 막는 구조적 요인이다.</p><p>갈리바프 의장은 협상 거부파와 굴복파를 모두 비판하며 “전투와 협상이 병행돼야 한다”고 밝혀, 단기간 해소되기 어려운 국면임을 시사했다.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 한국경제 — <a href="https://www.hankyung.com/article/2026092063067" target="_blank" rel="noopener">이란 “미국이 종전 조건 이행 안하면 ‘호르무즈 폐쇄’ 유지”</a></p></div>
+</details>
+</article><article class="card">
+<div class="card-top"><span class="pill na">● 시장 영향 파악 불가</span><span class="src">인베스팅닷컴</span></div>
+<h3><a href="https://kr.investing.com/news/assorted/article-2100332" target="_blank" rel="noopener">중국 CXMT, 5세대(1b nm) D램 양산 돌입</a></h3>
+<p class="lede">노광장비 제약에도 양산 발표. 중저가 범용 메모리 자급률 상승 신호로 읽힌다.</p>
+<div class="chips"><span class="chip"><span>공정</span><b class="num flat">5세대 · 1b nm</b></span><span class="chip"><span>수율</span><b class="num flat">검증 필요</b></span><span class="chip"><span>변수</span><b class="num flat">24일 미·중 회담</b></span></div>
+<details><summary>배경과 시장 영향</summary>
+<div class="detail"><span class="lab">왜 중요한가</span><p>기술 완성도와 수율에는 검증이 필요하다는 시각이 우세하지만, 중저가 범용 메모리를 중심으로 중국의 자급률이 빠르게 올라가고 있다는 신호.</p><p>한국 메모리 기업의 이익은 HBM·고사양 서버용이 끌고 범용 D램이 물량을 받치는 구조여서, 범용 구간의 가격 방어력이 전체 사이클의 하단을 좌우한다. 24일 회담에서 대중 기술 규제 완화가 의제로 오를 가능성도 함께 볼 변수.</p><div class="na-line"><span class="lab">시장 영향</span><span>파악 불가</span></div>
+<p class="srcline">출처 · 인베스팅닷컴 (시티타임스) — <a href="https://kr.investing.com/news/assorted/article-2100332" target="_blank" rel="noopener">제재 뚫은 中 창신메모리, 5세대 D램 본격 양산</a></p></div>
+</details>
+</article></div></div></section>
+
+<section class="sec" id="ap1"><div class="wrap">
+<div class="sec-head"><h2>부록 1 — 경제 용어 정리집</h2><span class="n num">10개</span></div>
+<div class="tablewrap"><table>
+<thead><tr><th style="width:18%">용어</th><th style="width:36%">쉬운 설명</th><th style="width:46%">오늘 왜 나왔나</th></tr></thead>
+<tbody><tr><td>무역수지</td><td>일정 기간 수출액에서 수입액을 뺀 값. 플러스면 흑자, 마이너스면 적자.</td><td>9월 1~20일 수출 714억달러, 수입 484억4000만달러로 무역수지 230억달러 흑자 — 같은 기간 기준 최대.</td></tr><tr><td>조업일수</td><td>실제로 공장이 돌고 통관이 이뤄진 영업일 수. 휴일 배치에 따라 달라진다.</td><td>이달 1~20일 조업일수 15.5일로 작년보다 하루 적었는데도 일평균 수출이 89.8% 늘어, 휴일 효과가 아님을 보여줬다.</td></tr><tr><td>환헤지</td><td>해외 자산 투자자가 환율 변동 손실을 막으려 미리 달러를 파는 등의 계약을 걸어두는 것.</td><td>국민연금이 환헤지를 중단하자 달러 매도 물량이 줄며 원·달러 환율의 단기 바닥이 확인됐다는 분석.</td></tr><tr><td>래깅 (lagging)</td><td>수출업체가 벌어들인 달러를 원화로 바꾸는 시점을 일부러 미루는 것.</td><td>환율 반등 국면에서 수입업체는 달러 매수, 수출업체는 래깅에 들어가며 수급이 뒤집혔다고 은행 딜러가 설명.</td></tr><tr><td>경상수지</td><td>상품·서비스 거래와 이자·배당 등을 합쳐 한 나라가 해외와 주고받은 돈의 차액.</td><td>올해 경상흑자가 GDP의 20% 수준인 4,500억달러에 이를 전망 — 추세적 원화 약세는 어렵다는 근거.</td></tr><tr><td>국고채 금리 · bp</td><td>정부 발행 채권의 시장 이자율. 1bp는 0.01%포인트.</td><td>18일 국고채 3년물 연 4.035%로 상승, 10년물은 4.460%로 전 거래일보다 5.2bp 하락.</td></tr><tr><td>수익률 곡선</td><td>만기가 다른 국채 금리를 짧은 것부터 긴 것까지 이어 그린 선. 만기가 길수록 금리가 높으면 ‘우상향’.</td><td>18일 미국은 2년물 4.76%, 10년물 5.01%, 30년물 5.34%로 우상향 곡선 형성.</td></tr><tr><td>미수금 (도시가스)</td><td>원가 상승분을 요금에 반영하지 못해 생긴 손실을 ‘나중에 회수할 돈’으로 회계 처리한 외상값.</td><td>가스공사 민간용 도시가스 미수금 14조원, 연 5,000억원 금융비용 — 요금 현실화 필요성 제기.</td></tr><tr><td>잔존가치 보증</td><td>반도체나 데이터센터를 나중에 팔거나 다시 빌려줄 때 일정 가치 이상을 보장해 주겠다는 계약.</td><td>미 빅테크들이 최근 1년간 최대 3,000억달러 규모를 제공하며 부담 상당 부분을 대차대조표 밖에 뒀다고 FT 보도.</td></tr><tr><td>소부장</td><td>소재·부품·장비의 줄임말. 대기업에 원료와 기계를 공급하는 업체들.</td><td>18일 기준 코스닥 시총 10위 안에 반도체 소부장 5곳 — 연초 0곳에서 절반으로.</td></tr></tbody></table></div>
+</div></section>
+
+<section class="sec" id="ap2"><div class="wrap">
+<div class="sec-head"><h2>부록 2 — 이슈별 영향을 받을 수 있는 기업</h2><span class="n num">10건</span></div>
+<div class="tablewrap"><table>
+<thead><tr><th style="width:26%">이슈 / 뉴스</th><th style="width:22%">기업 또는 주식 이름</th><th style="width:52%">이유 및 영향 경로</th></tr></thead>
+<tbody><tr><td>9월 1~20일 반도체 수출 341억달러(+259.4%), 전체 수출의 47.8%</td><td>삼성전자 · SK하이닉스</td><td>수출 통계의 반도체 항목은 사실상 이 두 회사의 출하량·단가 집계에 가깝다. 통관 기준 물량과 가격이 곧바로 분기 매출 추정치에 들어가므로, 수출 지표는 실적 전망을 바꾸는 가장 빠른 공개 데이터.</td></tr><tr><td>삼성전자·SK하이닉스 올해 합산 설비투자 컨센서스 117조원(+56%)</td><td>주성엔지니어링 · 원익IPS · 이오테크닉스 · 리노공업 · 심텍</td><td>메모리 업체가 팹을 짓고 장비를 주문하면 그 돈이 장비·부품 회사 매출로 넘어간다. 주문→출하 4~5개월이라 전공정 장비가 먼저, 소모품·소재는 가동률이 올라온 뒤 반영되는 시차가 있다.</td></tr><tr><td>HBM·AI 가속기 수요로 패키징·테스트 병목 발생</td><td>피에스케이홀딩스 · 에스티아이 · ISC · 티에스이 · 원익QnC · 티씨케이</td><td>과거에는 전공정 투자 후 후공정이 따라왔지만 HBM은 패키징·테스트 설비가 먼저 부족해지는 구조. 본딩·레이저 장비와 소켓·프로브카드·식각 부품까지 범위가 넓어졌다는 분석.</td></tr><tr><td>원·달러 환율 7거래일 만에 50원 급등</td><td>LG이노텍</td><td>부품을 달러로 결제받더라도 원재료·설비를 달러로 사오면 환율 상승이 순수한 이익 증가로 이어지지 않는다. 메리츠증권은 21일 “피할 수 없는 환율 역풍”을 이유로 목표주가를 낮춘 보고서를 냈다.</td></tr><tr><td>가스공사·석유공사 통합 추진, 도시가스 미수금 14조원</td><td>한국가스공사</td><td>가스공사는 상장사, 석유공사는 2020년부터 완전자본잠식. 통합 방식에 따라 재무 상태와 소액주주 지분 가치가 달라질 수 있어 사장이 직접 소액주주 보호를 원칙으로 제시했다.</td></tr><tr><td>성수3지구 재개발 시공사 선정 (공사비 1조8,275억원)</td><td>삼성물산</td><td>재개발 시공권은 향후 몇 년간의 주택 부문 수주 잔고로 잡히는 계약. 한강변 초고층 물량은 단일 규모가 크고 브랜드 레퍼런스로도 이어져 후속 수주전에 영향을 준다.</td></tr><tr><td>중동 분쟁 장기화, 내년 국방예산 73조원(방위력개선비 +13.8%)</td><td>한화에어로스페이스 · LIG디펜스앤에어로스페이스</td><td>지상 방산과 유도무기 체계의 국내 대표 기업. 방위력개선비는 무기 구매·개발 항목이라 국내 조달 물량과 직접 연결되고, 분쟁 장기화는 수출 문의로 이어지는 경로가 있다.</td></tr><tr><td>AI 인프라 ‘장부 밖’ 잔존가치 보증 최대 3,000억달러 확산</td><td>메타 · 엔비디아 · 브로드컴</td><td>메타가 데이터센터에 처음 도입한 구조가 브로드컴의 앤트로픽 반도체 공급 금융, 엔비디아의 오픈AI 등 고객사 구매 지원으로 번졌다. 보증이 장부 밖에 있으면 신용등급과 저비용 조달을 유지한 채 투자 속도를 올릴 수 있지만, 실제 부담 규모는 재무제표만으로 파악하기 어려워진다.</td></tr><tr><td>중국 CXMT 5세대(1b nm) D램 양산</td><td>삼성전자 · SK하이닉스</td><td>CXMT는 비상장사라 직접 투자 대상은 아니지만, 중저가 범용 D램에서 중국 자급률이 올라가면 한국 기업의 점유율 방어 전략이 달라진다. 범용 구간 가격은 메모리 사이클 전체의 하단을 결정하는 변수.</td></tr><tr><td>미국 픽업트럭용 배터리 개발·현지 라이선스 생산 추진</td><td>CATL</td><td>고율 관세와 현지화·안보 규제로 직접 진출이 막히자 현지 완성차에 기술을 제공하는 라이선스 생산으로 우회하는 방식. 성사되면 한국 배터리 기업이 확보해 온 북미 픽업트럭 시장의 경쟁 구도가 바뀐다.</td></tr></tbody></table></div>
+<p class="disc">※ 이 표는 매수·매도 의견이나 주가 방향 전망이 아니다. 오늘 기사에 실제로 이름이 등장한 기업을 대상으로 영향이 전달되는 경로만 설명한 것이다.</p>
+</div></section>
+
+<footer><div class="wrap">
+<p>수집 시각 2026년 9월 21일 오전 10시대 (KST) · 수집원 한국경제(hankyung.com) · 인베스팅닷컴(kr.investing.com) · Yahoo Finance</p>
+<p>시황 수치는 kr.investing.com 과거 데이터 페이지의 2026년 9월 18일 종가 기준이며 Yahoo Finance로 교차 확인. 기사에 없는 수치는 만들어 쓰지 않았고, 확인되지 않은 항목은 ‘확인 필요’로 표기했다.</p>
+</div></footer>
+
+<script>
+document.querySelectorAll(".tool").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var sec = document.getElementById(btn.dataset.sec);
+    var ds = sec.querySelectorAll("details");
+    var open = btn.textContent.indexOf("펼치기") > -1;
+    ds.forEach(function (d) { d.open = open; });
+    btn.textContent = open ? "모두 접기" : "모두 펼치기";
+  });
+});
+</script>
+</body>
+</html>
